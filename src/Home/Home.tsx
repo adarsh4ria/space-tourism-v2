@@ -1,9 +1,10 @@
 import { Link } from 'react-router-dom'
+import './home.scss'
 
 const Home = () => {
   return (
-    <div>
-      <div>
+    <div className="home">
+      <div className="home__content">
         <h5>SO, YOU WANT TO TRAVEL TO</h5>
         <h1>SPACE</h1>
         <p>
@@ -13,11 +14,9 @@ const Home = () => {
           experience!
         </p>
       </div>
-      <div>
-        <Link to="/destination">
-          <h4>EXPLORE</h4>
-        </Link>
-      </div>
+      <Link to="/destination" className="home__explore">
+        <h4>EXPLORE</h4>
+      </Link>
     </div>
   )
 }

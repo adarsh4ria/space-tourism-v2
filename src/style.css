@@ -9,102 +9,201 @@
 }
 
 body {
-  background: rgb(10, 10, 10);
   color: var(--white);
   font-family: 'Bellefair', sans-serif;
+  font-weight: 400;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  text-align: center;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  text-wrap: balance;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+
+  &:has(.home) {
+    background-image: url(/src/assets/background-images/background-home-mobile.jpg);
+  }
+  &:has(.destination) {
+    background-image: url(/src/assets/background-images/background-destination-mobile.jpg);
+  }
+  &:has(.crew) {
+    background-image: url(/src/assets/background-images/background-crew-mobile.jpg);
+  }
+  &:has(.technology) {
+    background-image: url(/src/assets/background-images/background-technology-mobile.jpg);
+  }
 }
 
 h1 {
-  font-size: 150px;
+  font-size: 5rem;
+  line-height: 125%;
 }
 
 h2 {
-  font-size: 100px;
+  font-size: 3.5rem;
 }
 
 h3 {
-  font-size: 56px;
+  font-size: 1.5rem;
+  text-transform: uppercase;
 }
 
 h4 {
-  font-size: 32px;
+  font-size: 1.25rem;
   text-transform: uppercase;
+  letter-spacing: 0.125rem;
 }
 
 h5 {
-  font-size: 28px;
-  letter-spacing: 4.725px;
+  font-family: 'Barlow Condensed';
+  font-size: 1rem;
+  letter-spacing: 0.16875rem;
   text-transform: uppercase;
-  font-family: Barlow Condensed;
-  color: var(--secondary);
 }
 
 .sub-heading-1 {
-  font-size: 28px;
+  font-size: 1.75rem;
 }
 
 .sub-heading-2 {
-  font-size: 14px;
-  letter-spacing: 2.35px;
-  font-family: 'Barlow';
+  font-family: 'Barlow Condensed';
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0.14763rem;
+  text-transform: uppercase;
   color: var(--secondary);
-  margin-block: 10px;
+}
+
+.nav {
+  color: #fff;
+  font-family: 'Barlow Condensed';
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-transform: uppercase;
+  & * {
+    letter-spacing: 0.16875rem;
+  }
 }
 
 p {
   color: var(--secondary);
-  font-family: 'Barlow', sans-serif;
-  font-size: 18px;
-  line-height: 32px;
+  font-family: Barlow, sans-serif;
+  font-size: 0.9375rem;
+  line-height: 166.667%;
   max-width: 50ch;
 }
 
 .container {
-  margin-top: 75px;
   width: 85%;
   margin-inline: auto;
   flex: 1;
+
+  & > div {
+    height: 100%;
+  }
 }
 
-nav {
-  font-size: 16px;
-  letter-spacing: 2.7px;
-  font-family: 'Barlow Condensed';
-  white-space: nowrap;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-}
-
-nav ul {
-  display: flex;
-  list-style: none;
-  gap: 35px;
-}
-
-nav li {
-  position: relative;
-
-  & a::after {
-    content: '';
-    background: var(--white);
-    height: 3px;
-    width: 100%;
-    position: absolute;
-    left: 0;
-    bottom: -30px;
-    display: none;
+@media screen and (min-width: 30rem) {
+  #root {
+    &:has(.home) {
+      background-image: url(/src/assets/background-images/background-home-tablet.jpg);
+    }
+    &:has(.destination) {
+      background-image: url(/src/assets/background-images/background-destination-tablet.jpg);
+    }
+    &:has(.crew) {
+      background-image: url(/src/assets/background-images/background-crew-tablet.jpg);
+    }
+    &:has(.technology) {
+      background-image: url(/src/assets/background-images/background-technology-tablet.jpg);
+    }
   }
 
-  & a.active::after {
-    display: block;
+  h1 {
+    font-size: 9.375rem;
+    line-height: 100%;
   }
 
-  & a:hover::after {
-    display: block;
-    opacity: 0.5;
+  h2 {
+    font-size: 5rem;
+  }
+
+  h3 {
+    font-size: 2.5rem;
+  }
+
+  h4 {
+    font-size: 2rem;
+  }
+  h5 {
+    font-size: 1.25rem;
+  }
+  p {
+    font-size: 1rem;
+    letter-spacing: 175%;
+  }
+
+  .nav {
+    font-size: 0.875rem;
+  }
+}
+
+@media screen and (min-width: 48rem) {
+  #root {
+    &:has(.home) {
+      background-image: url(/src/assets/background-images/background-home-desktop.jpg);
+    }
+    &:has(.destination) {
+      background-image: url(/src/assets/background-images/background-destination-desktop.jpg);
+    }
+    &:has(.crew) {
+      background-image: url(/src/assets/background-images/background-crew-desktop.jpg);
+    }
+    &:has(.technology) {
+      background-image: url(/src/assets/background-images/background-technology-desktop.jpg);
+    }
+  }
+  body {
+    text-align: left;
+  }
+  h1 {
+    font-size: 9.375rem;
+  }
+  h2 {
+    font-size: 6.25rem;
+  }
+  h3 {
+    font-size: 3.5rem;
+  }
+  h4 {
+    font-size: 2rem;
+  }
+  h5 {
+    font-size: 1.75rem;
+    letter-spacing: 0.29531rem;
+  }
+  p {
+    font-size: 1.125rem;
+    line-height: 2rem; /* 177.778% */
+  }
+  .nav {
+    font-size: 1rem;
   }
 }

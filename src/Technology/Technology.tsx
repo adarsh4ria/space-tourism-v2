@@ -4,7 +4,7 @@ import { technology } from '../data'
 const Technology = () => {
   const [currentTechnology, setCurrentTechnology] = useState(technology[0])
   return (
-    <div>
+    <div className="technology">
       <h5>SPACE LAUNCH 101</h5>
       <main>
         <div>
@@ -23,6 +23,7 @@ const Technology = () => {
           <h3 id="name">{currentTechnology.name}</h3>
           <p id="description">{currentTechnology.description}</p>
         </div>
+        ā
         <div>
           <img
             id="image"

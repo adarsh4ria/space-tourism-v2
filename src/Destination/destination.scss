@@ -1,0 +1,133 @@
+.destination {
+  padding-top: 1rem;
+
+  &__heading > span {
+    position: relative;
+  }
+
+  &__heading > span::before {
+    content: '01';
+    position: absolute;
+    left: max(-10vw, -2.5rem);
+    opacity: 0.25;
+  }
+
+  &__information {
+    padding-block-start: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  &__image {
+    position: relative;
+    width: min(50vw, 35rem);
+    aspect-ratio: 1;
+
+    & > img {
+      width: 100%;
+    }
+  }
+
+  // &__image::after {
+  //   content: '';
+  //   position: absolute;
+  //   width: 100%;
+  //   height: 100%;
+  //   border-radius: 50%;
+  //   bottom: 0;
+  //   right: 0;
+  //   box-shadow: inset -20vw -20vw 6.25rem black;
+  // }
+
+  &__nav-list {
+    display: flex;
+    justify-content: space-evenly;
+    font-family: 'Barlow Condensed';
+    font-size: 0.875rem;
+    margin-bottom: 1.5rem;
+  }
+
+  &__nav-tab {
+    color: var(--secondary);
+    font-family: Barlow Condensed;
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.14763rem;
+  }
+
+  &__nav-tab.active {
+    position: relative;
+    color: white;
+  }
+
+  &__nav-tab.active::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 0.1875rem;
+    background-color: white;
+    left: 0;
+    bottom: -0.75rem;
+  }
+
+  &__separator {
+    margin-block: 2rem;
+    opacity: 0.5;
+  }
+
+  &__details {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    & .sub-heading-2 {
+      margin-bottom: 0.75rem;
+    }
+  }
+
+  @media screen and (min-width: 30rem) {
+    &__heading {
+      text-align: left;
+    }
+
+    &__information {
+      gap: 2.5rem;
+    }
+
+    &__details {
+      flex-direction: row;
+      justify-content: space-evenly;
+    }
+  }
+
+  @media screen and (min-width: 48rem) {
+    padding-top: 4rem;
+
+    &__information {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    &__image {
+      height: 80%;
+      width: auto;
+    }
+
+    &__nav-list {
+      justify-content: flex-start;
+      gap: 2rem;
+      margin-bottom: 2.5rem;
+    }
+
+    &__details {
+      justify-content: flex-start;
+      gap: 5rem;
+    }
+  }
+}

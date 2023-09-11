@@ -5,7 +5,7 @@ const Crew = () => {
   const [currentCrewMember, setCurrentCrewMember] = useState(crew[0])
 
   return (
-    <div>
+    <div className="crew">
       <h5>MEET YOUR CREW</h5>
       <main>
         <div>
