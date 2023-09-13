@@ -7,7 +7,7 @@ const Destination = () => {
   const [currentDestination, setCurrentDestination] = useState(destinations[0])
 
   return (
-    <div className="destination">
+    <section className="destination">
       <h5 className="destination__heading">
         <span>PICK YOUR DESTINATION</span>
       </h5>
@@ -53,7 +53,7 @@ const Destination = () => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   )
 }
 

@@ -157,7 +157,7 @@ p {
   }
   p {
     font-size: 1rem;
-    letter-spacing: 175%;
+    line-height: 175%;
   }
 
   .nav {

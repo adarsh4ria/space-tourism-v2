@@ -58,21 +58,30 @@
     font-weight: 400;
     line-height: normal;
     letter-spacing: 0.14763rem;
-  }
-
-  &__nav-tab.active {
     position: relative;
-    color: white;
-  }
 
-  &__nav-tab.active::after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 0.1875rem;
-    background-color: white;
-    left: 0;
-    bottom: -0.75rem;
+    &::after {
+      content: '';
+      display: none;
+      position: absolute;
+      width: 100%;
+      height: 0.1875rem;
+      background-color: white;
+      left: 0;
+      bottom: -0.75rem;
+    }
+
+    &.active {
+      color: white;
+      &::after {
+        display: block;
+      }
+    }
+
+    &:hover::after {
+      display: block;
+      opacity: 0.5;
+    }
   }
 
   &__separator {
