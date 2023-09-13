@@ -1,5 +1,31 @@
 import { Link } from 'react-router-dom'
 import './home.scss'
+import {styled} from 'styled-components'
+
+const Button = styled(Link)`
+  width: 9.375rem;
+  background: #fff;
+  border-radius: 50%;
+  color: #0b0d17;
+  aspect-ratio: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 0 0 rgba(#fff, 0.1);
+  transition: 200ms;
+
+  &:hover {
+    box-shadow: 0 0 0 4rem rgba(255, 255, 255, 0.2);
+  }
+
+  @media screen and (min-width: 30rem) {
+    width: 15.125rem;
+  }
+
+  @media screen and (min-width: 48rem) {
+    width: 17.125rem;
+  }
+`
 
 const Home = () => {
   return (
@@ -14,9 +40,9 @@ const Home = () => {
           experience!
         </p>
       </div>
-      <Link to="/destination" className="home__explore">
+      <Button to="/destination">
         <h4>EXPLORE</h4>
-      </Link>
+      </Button>
     </div>
   )
 }
