@@ -1,3 +1,6 @@
+@import '../partials/variables';
+@import '../partials/mixins';
+
 .destination {
   padding-top: 1rem;
 
@@ -46,13 +49,13 @@
     display: flex;
     justify-content: space-evenly;
     font-family: 'Barlow Condensed';
-    font-size: 0.875rem;
     margin-bottom: 1.5rem;
   }
 
   &__nav-tab {
-    color: var(--secondary);
+    color: $secondary;
     font-family: Barlow Condensed;
+    @include responsive-property(font-size, 0.875rem, 1rem);
     font-size: 0.875rem;
     font-style: normal;
     font-weight: 400;
@@ -92,6 +95,8 @@
   &__details {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     gap: 2rem;
 
     & .sub-heading-2 {

@@ -3,11 +3,10 @@ import hamburgerIcon from '../../assets/icons/hamburger-menu.svg'
 import closeIcon from '../../assets/icons/close-menu.svg'
 import './header.scss'
 
-import { Link, useLocation } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 import { useRef, useState } from 'react'
 
 const Header = () => {
-  const { pathname } = useLocation()
   const [navHidden, setNavHidden] = useState(true)
   const navRef = useRef(document.createElement('nav'))
 
@@ -20,7 +19,9 @@ const Header = () => {
 
   return (
     <header className="header">
-      <img src={icon} alt="icon" className="header__icon" />
+      <Link to={'/'}>
+        <img src={icon} alt="icon" className="header__icon" />
+      </Link>
       <button
         onClick={(e) => {
           e.currentTarget.children[0].src = navHidden
@@ -36,16 +37,16 @@ const Header = () => {
       <nav className="primary-navigation nav" ref={navRef}>
         <ul className="primary-navigation__list">
           {links.map(([link, page], index) => (
-            <li>
-              <Link
+            <li key={link}>
+              <NavLink
                 to={link}
-                className={`primary-navigation__link ${
-                  pathname === link ? 'active' : ''
-                }`}
+                className={({ isActive }) =>
+                  `primary-navigation__link ${isActive ? 'active' : ''}`
+                }
               >
                 <span>0{index}</span>
                 {page}
-              </Link>
+              </NavLink>
             </li>
           ))}
         </ul>

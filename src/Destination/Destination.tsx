@@ -2,13 +2,15 @@ import './destination.scss'
 
 import { useState } from 'react'
 import { destinations } from '../data'
+import DestinationInformation from './DestinationInformation'
+import DestinationNav from './DestinationNav'
 
 const Destination = () => {
   const [currentDestination, setCurrentDestination] = useState(destinations[0])
 
   return (
     <section className="destination">
-      <h5 className="destination__heading">
+      <h5 className="h5 destination__heading">
         <span>PICK YOUR DESTINATION</span>
       </h5>
       <div className="destination__information">
@@ -20,37 +22,13 @@ const Destination = () => {
           />
         </div>
         <div>
-          <nav className="destination__nav nav">
-            <ul className="destination__nav-list">
-              {destinations.map((destination) => (
-                <li key={'destinations_' + destination.name}>
-                  <button
-                    className={`destination__nav-tab ${
-                      destination === currentDestination ? 'active' : ''
-                    }`}
-                    onClick={() => {
-                      setCurrentDestination(destination)
-                    }}
-                  >
-                    {destination.name}
-                  </button>
-                </li>
-              ))}
-            </ul>
-          </nav>
-          <h2 id="name">{currentDestination.name}</h2>
-          <p id="description">{currentDestination.description}</p>
-          <hr className="destination__separator" />
-          <div className="destination__details">
-            <div>
-              <div className="sub-heading-2">AVG. DISTANCE</div>
-              <div className="sub-heading-1">{currentDestination.distance}</div>
-            </div>
-            <div>
-              <div className="sub-heading-2">EST. TRAVEL TIME</div>
-              <div className="sub-heading-1">{currentDestination.time}</div>
-            </div>
-          </div>
+          <DestinationNav
+            onClickHandler={(destination) => {
+              setCurrentDestination(destination)
+            }}
+            currentDestination={currentDestination}
+          />
+          <DestinationInformation destination={currentDestination} />
         </div>
       </div>
     </section>

@@ -53,6 +53,11 @@
     margin-right: 1rem;
   }
 
+  &__link:hover::after {
+    opacity: 0.5;
+  }
+
+  &__link:hover::after,
   &__link.active::after {
     content: '';
     background: white;
@@ -86,6 +91,7 @@
       }
     }
 
+    &__link:hover::after,
     &__link.active::after {
       right: inherit;
       bottom: -2.25rem;

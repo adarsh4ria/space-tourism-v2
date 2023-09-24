@@ -12,40 +12,14 @@
     gap: 1rem;
   }
 
-  &__explore {
-    width: 9.375rem;
-    background: #fff;
-    border-radius: 50%;
-    color: #0b0d17;
-    aspect-ratio: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0 0 0 0 rgba(#fff, 0.1);
-    transition: 200ms;
-
-    &:hover {
-      box-shadow: 0 0 0 4rem rgba(#fff, 0.1);
-    }
-    // margin-block-start: 10vh;
-  }
-
   @media screen and (min-width: 30rem) {
     &__content {
       gap: 1.5rem;
-    }
-
-    &__explore {
-      width: 15.125rem;
     }
   }
 
   @media screen and (min-width: 48rem) {
     flex-direction: row;
     align-items: flex-end;
-
-    &__explore {
-      width: 17.125rem;
-    }
   }
 }

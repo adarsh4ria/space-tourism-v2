@@ -1,0 +1,18 @@
+@import 'variables';
+
+@mixin responsive-property(
+  $property: font-size,
+  $sm: 1rem,
+  $md: $sm,
+  $lg: $md
+) {
+  #{$property}: $sm;
+
+  @media screen and ($screen-width-sm <= width <= $screen-width-md) {
+    #{$property}: $md;
+  }
+
+  @media screen and (width >= $screen-width-md) {
+    #{$property}: $lg;
+  }
+}
