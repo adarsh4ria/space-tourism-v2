@@ -14,10 +14,7 @@ const Technology = () => {
       </h1>
       <div className={styles.information}>
         <div className={styles['image-container']}>
-          <img
-            src={`/src/assets/technology/${currentTechnology.name}.png`}
-            alt={currentTechnology.name}
-          />
+          <img src={currentTechnology.image} alt={currentTechnology.name} />
         </div>
         <TechnologyNav
           onClickHandler={(tech) => setCurrentTechnology(tech)}

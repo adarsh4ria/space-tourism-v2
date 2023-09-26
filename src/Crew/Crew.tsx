@@ -16,7 +16,7 @@ const Crew = () => {
         <div className={styles['image-container']}>
           <img
             width="500px"
-            src={`/src/assets/crew/${currentCrewMember.name}.png`}
+            src={currentCrewMember.image}
             alt={currentCrewMember.name}
           />
           <hr />

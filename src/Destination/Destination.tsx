@@ -17,7 +17,7 @@ const Destination = () => {
         <div className="destination__image">
           <img
             id="image"
-            src={`/src/assets/destinations/${currentDestination.name}.png`}
+            src={currentDestination.image}
             alt={currentDestination.name}
           />
         </div>
