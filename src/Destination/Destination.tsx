@@ -3,7 +3,7 @@ import './destination.scss'
 import { useState } from 'react'
 import { destinations } from '../data'
 import DestinationInformation from './DestinationInformation'
-import DestinationNav from './DestinationNav'
+import Tabs from '../Components/Tabs/Tabs'
 
 const Destination = () => {
   const [currentDestination, setCurrentDestination] = useState(destinations[0])
@@ -15,19 +15,27 @@ const Destination = () => {
       </h5>
       <div className="destination__information">
         <div className="destination__image">
-          <img
-            id="image"
-            src={currentDestination.image}
-            alt={currentDestination.name}
-          />
+          <img src={currentDestination.image} alt={currentDestination.name} />
         </div>
         <div>
-          <DestinationNav
+          <Tabs
+            changeHandler={(index) =>
+              setCurrentDestination(destinations[index])
+            }
+            displayValues={destinations.map(({ name }) => name)}
+            styles={{
+              navStyle: 'destination__nav nav',
+              menuStyle: 'destination__nav-list',
+              buttonStyle: 'destination__nav-tab',
+              activeStyle: 'active',
+            }}
+          />
+          {/* <DestinationNav
             onClickHandler={(destination) => {
               setCurrentDestination(destination)
             }}
             currentDestination={currentDestination}
-          />
+          /> */}
           <DestinationInformation destination={currentDestination} />
         </div>
       </div>

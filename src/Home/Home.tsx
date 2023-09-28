@@ -41,7 +41,7 @@ const Home = () => {
         </p>
       </section>
       <Button to="/destination">
-        <h4 className="h4">EXPLORE</h4>
+        <span className="h4">EXPLORE</span>
       </Button>
     </div>
   )

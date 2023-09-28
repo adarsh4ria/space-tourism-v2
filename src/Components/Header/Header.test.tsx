@@ -21,8 +21,10 @@ describe('Testing Header', () => {
     const user = userEvent.setup()
 
     const menu = screen.getByRole('button')
+    expect(screen.queryByRole('navigation')).toBeInTheDocument()
     await user.click(menu)
-    const nav = screen.getByRole('navigation')
-    expect(nav).toBeInTheDocument()
+    expect(screen.queryByRole('navigation')).not.toBeInTheDocument()
+    await user.click(menu)
+    expect(screen.queryByRole('navigation')).toBeInTheDocument()
   })
 })

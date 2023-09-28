@@ -28,6 +28,7 @@
     position: relative;
     width: min(50vw, 35rem);
     aspect-ratio: 1;
+    max-width: 400px;
 
     & > img {
       width: 100%;

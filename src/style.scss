@@ -60,7 +60,7 @@ h5 {
 
 .h4,
 h4 {
-  @include responsive-property(font-size, 1.25rem, 2rem);
+  @include responsive-property(font-size, 1rem, 1.5rem, 2rem);
   text-transform: uppercase;
   letter-spacing: 0.125rem;
 }
@@ -111,6 +111,7 @@ p {
 .container {
   width: 85%;
   margin-inline: auto;
+  padding-bottom: 5rem;
   flex: 1;
 
   & > div {

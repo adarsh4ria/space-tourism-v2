@@ -4,11 +4,12 @@ import closeIcon from '../../assets/icons/close-menu.svg'
 import './header.scss'
 
 import { Link, NavLink } from 'react-router-dom'
-import { useRef, useState } from 'react'
+import { useState } from 'react'
 
 const Header = () => {
-  const [navHidden, setNavHidden] = useState(true)
-  const navRef = useRef(document.createElement('nav'))
+  const mobileView = window.innerWidth < 480
+  const [navHidden, setNavHidden] = useState(mobileView)
+  const [menuButtonIcon, setMenuButtonIcon] = useState(hamburgerIcon)
 
   const links = [
     ['/', 'Home'],
@@ -17,40 +18,43 @@ const Header = () => {
     ['/technology', 'Technology'],
   ]
 
+  const toggleNav = () => {
+    setNavHidden((navHidden) => {
+      setMenuButtonIcon(navHidden ? closeIcon : hamburgerIcon)
+      return !navHidden
+    })
+  }
+
   return (
     <header className="header">
       <Link to={'/'}>
         <img src={icon} alt="icon" className="header__icon" />
       </Link>
-      <button
-        onClick={(e) => {
-          e.currentTarget.children[0].src = navHidden
-            ? closeIcon
-            : hamburgerIcon
-          navRef.current.style.display = navHidden ? 'block' : 'none'
-          setNavHidden(!navHidden)
-        }}
-        className="header__mobile-nav-icon"
-      >
-        <img src={hamburgerIcon} alt="menu" />
+      <button onClick={toggleNav} className="header__mobile-nav-icon">
+        <img src={menuButtonIcon} alt="menu" />
       </button>
-      <nav className="primary-navigation nav" ref={navRef}>
-        <ul className="primary-navigation__list">
-          {links.map(([link, page], index) => (
-            <li key={link}>
-              <NavLink
-                to={link}
-                className={({ isActive }) =>
-                  `primary-navigation__link ${isActive ? 'active' : ''}`
-                }
-              >
-                <span>0{index}</span>
-                {page}
-              </NavLink>
-            </li>
-          ))}
-        </ul>
-      </nav>
+      {!navHidden ? (
+        <nav className="primary-navigation nav">
+          <ul className="primary-navigation__list">
+            {links.map(([link, page], index) => (
+              <li key={link}>
+                <NavLink
+                  to={link}
+                  className={({ isActive }) =>
+                    `primary-navigation__link ${isActive ? 'active' : ''}`
+                  }
+                  onClick={() => {
+                    mobileView && toggleNav()
+                  }}
+                >
+                  <span>0{index}</span>
+                  {page}
+                </NavLink>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      ) : null}
     </header>
   )
 }

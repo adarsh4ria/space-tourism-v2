@@ -21,7 +21,6 @@
   width: 100vw;
   height: 25vh;
   overflow: hidden;
-  background-color: red;
   position: relative;
 
   > img {
@@ -31,10 +30,11 @@
   }
 }
 
-.tabs {
+.tabs > menu {
   display: flex;
   gap: 1rem;
-  > button {
+
+  & button {
     width: 2.5rem;
     border: 1px solid rgba(255, 255, 255, 0.25);
     aspect-ratio: 1;
@@ -67,12 +67,12 @@
     margin-top: 2.5rem;
   }
 
-  .tabs > button {
+  .tabs > menu button {
     width: 3.75rem;
   }
 }
 
-@media screen and (min-width: 48rem) {
+@media screen and (width > 48rem) {
   .heading {
     margin-top: 4.5rem;
   }
@@ -98,6 +98,12 @@
 
   .tabs {
     order: 1;
-    flex-direction: column;
+    > menu {
+      flex-direction: column;
+      gap: 2rem;
+      & button {
+        width: 5rem;
+      }
+    }
   }
 }

@@ -2,7 +2,8 @@ import { useState } from 'react'
 import { crew } from '../data'
 import styles from './crew.module.css'
 import CrewDetails from './CrewDetails'
-import CrewNav from './CrewNav'
+// import CrewNav from './CrewNav'
+import Tabs from '../Components/Tabs/Tabs'
 
 const Crew = () => {
   const [currentCrewMember, setCurrentCrewMember] = useState(crew[0])
@@ -21,12 +22,20 @@ const Crew = () => {
           />
           <hr />
         </div>
-        <CrewNav
+        <Tabs
+          changeHandler={(index) => setCurrentCrewMember(crew[index])}
+          displayValues={crew.map(() => '')}
+          styles={{
+            menuStyle: styles.tabs,
+            activeStyle: styles.active,
+          }}
+        />
+        {/* <CrewNav
           onClickHandler={(crewMember) => {
             setCurrentCrewMember(crewMember)
           }}
           currentCrewMember={currentCrewMember}
-        />
+        /> */}
         <CrewDetails details={currentCrewMember} />
       </div>
     </section>

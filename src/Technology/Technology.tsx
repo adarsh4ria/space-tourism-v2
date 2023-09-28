@@ -3,7 +3,8 @@ import { technology } from '../data'
 
 import styles from './Technology.module.css'
 import TechnologyDetails from './TechnologyDetails'
-import TechnologyNav from './TechnologyNav'
+// import TechnologyNav from './TechnologyNav'
+import Tabs from '../Components/Tabs/Tabs'
 
 const Technology = () => {
   const [currentTechnology, setCurrentTechnology] = useState(technology[0])
@@ -16,10 +17,21 @@ const Technology = () => {
         <div className={styles['image-container']}>
           <img src={currentTechnology.image} alt={currentTechnology.name} />
         </div>
-        <TechnologyNav
+        <Tabs
+          changeHandler={(index) => {
+            setCurrentTechnology(technology[index])
+          }}
+          displayValues={technology.map((_, index) => (index + 1).toString())}
+          styles={{
+            activeStyle: styles.active,
+            displayStyle: 'h4',
+            navStyle: styles.tabs,
+          }}
+        />
+        {/* <TechnologyNav
           onClickHandler={(tech) => setCurrentTechnology(tech)}
           currentTechnology={currentTechnology}
-        />
+        /> */}
         <TechnologyDetails details={currentTechnology} />
       </div>
     </section>
